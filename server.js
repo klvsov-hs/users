@@ -1,46 +1,41 @@
 const http = require('http');
 
 const lastNames = [
-  "Zimmerman", "York", "Wyatt", "Wright", "Woods", "Wood", "Wong", "Wolf", 
-  "Williams", "White", "Wheeler", "West", "Wells", "Weaver", "Watson", 
-  "Washington", "Ward", "Wallace", "Walker", "Wagner", "Wade", "Turner", 
-  "Tucker", "Torres", "Thomas", "Terry", "Taylor", "Sullivan", "Stone", 
-  "Stewart", "Stevens", "Stephens", "Snyder", "Smith", "Simpson", "Simmons", 
-  "Silva", "Shaw", "Scott", "Sanders", "Sanchez", "Russell", "Ruiz", "Ross", 
-  "Rose", "Romero", "Rogers", "Robinson", "Roberts", "Rivera"
+  "Zane", "Young", "Xiong", "Xavier", "Wilson", "White", "Vaughn", "Vance", 
+  "Upton", "Underwood", "Thompson", "Taylor", "Smith", "Scott", "Robinson", 
+  "Reed", "Quinn", "Quigley", "Perez", "Parker", "Owens", "Ortiz", "Nguyen", 
+  "Nelson", "Moore", "Miller", "Lewis", "Lee", "King", "Kelly", "Jones", 
+  "Jackson", "Irwin", "Ingram", "Harris", "Hall", "Green", "Garcia", "Foster", 
+  "Ford", "Evans", "Edwards", "Diaz", "Davis", "Clark", "Carter", "Brooks", 
+  "Baker", "Allen", "Adams"
 ];
 
 const firstNames = [
-  "James", "Mary", "John", "Patricia", "Robert", "Jennifer", "Michael", "Linda", 
-  "William", "Elizabeth", "David", "Barbara", "Richard", "Susan", "Joseph", 
-  "Jessica", "Thomas", "Sarah", "Charles", "Karen", "Christopher", "Lisa", 
-  "Daniel", "Nancy", "Matthew", "Betty", "Anthony", "Margaret", "Mark", 
-  "Sandra", "Donald", "Ashley", "Steven", "Kimberly", "Paul", "Emily", 
-  "Andrew", "Donna", "Joshua", "Michelle", "Kenneth", "Carol", "Kevin", "Amanda", 
-  "Brian", "Melissa", "George", "Deborah", "Edward", "Stephanie"
+  "Zachary", "Zoe", "Xander", "Xena", "William", "Willow", "Victor", "Victoria", 
+  "Ulysses", "Uma", "Thomas", "Tara", "Samuel", "Sophia", "Ryan", "Rachel", 
+  "Quincy", "Quinn", "Paul", "Penelope", "Oliver", "Olivia", "Noah", "Nora", 
+  "Mason", "Mia", "Liam", "Lucy", "Kevin", "Kylie", "Jack", "Julia", "Ian", 
+  "Isabella", "Henry", "Hannah", "George", "Grace", "Felix", "Fiona", "Ethan", 
+  "Emma", "Daniel", "Diana", "Charlie", "Chloe", "Bob", "Brenda", "Aaron", 
+  "Alice"
 ];
 
 const emails = [
-  "j.zimmerman@gmail.com", "mary.york@yahoo.com", "j.wyatt88@gmail.com", 
-  "p.wright@outlook.com", "r.woods@gmail.com", "jennifer.wood@gmail.com", 
-  "michael.wong@hotmail.com", "l.wolf@gmail.com", "william.w@gmail.com", 
-  "elizabeth.white@yahoo.com", "d.wheeler@gmail.com", "barbara.west@gmail.com", 
-  "richard.wells@outlook.com", "susan.weaver@gmail.com", "joseph.watson@gmail.com", 
-  "jessica.washington@hotmail.com", "t.ward@gmail.com", "sarah.wallace@gmail.com", 
-  "c.walker@yahoo.com", "karen.wagner@gmail.com", "chris.wade@gmail.com", 
-  "lisa.turner@outlook.com", "daniel.tucker@gmail.com", "nancy.torres@gmail.com", 
-  "matt.thomas@hotmail.com", "betty.terry@gmail.com", "anthony.taylor@gmail.com", 
-  "margaret.sullivan@yahoo.com", "mark.stone@gmail.com", "sandra.stewart@gmail.com", 
-  "donald.stevens@outlook.com", "ashley.stephens@gmail.com", "steven.snyder@gmail.com", 
-  "kimberly.smith@hotmail.com", "paul.simpson@gmail.com", "emily.simmons@gmail.com", 
-  "andrew.silva@yahoo.com", "donna.shaw@gmail.com", "joshua.scott@gmail.com", 
-  "michelle.sanders@outlook.com", "kenneth.sanchez@gmail.com", "carol.russell@gmail.com", 
-  "kevin.ruiz@hotmail.com", "amanda.ross@gmail.com", "brian.rose@gmail.com", 
-  "melissa.romero@gmail.com", "george.rogers@yahoo.com", "deborah.robinson@gmail.com", 
-  "edward.roberts@outlook.com", "stephanie.rivera@gmail.com"
+  "zachary.zane@outlook.com", "zoe.young@gmail.com", "xander.xiong@hotmail.com", "xena.xavier@gmail.com", 
+  "william.wilson@yahoo.com", "willow.white@gmail.com", "victor.vaughn@outlook.com", "victoria.vance@gmail.com", 
+  "ulysses.upton@yahoo.com", "uma.underwood@gmail.com", "thomas.thompson@hotmail.com", "tara.taylor@gmail.com", 
+  "samuel.smith@yahoo.com", "sophia.scott@gmail.com", "ryan.robinson@gmail.com", "rachel.reed@outlook.com", 
+  "quincy.quinn@gmail.com", "quinn.quigley@gmail.com", "paul.perez@yahoo.com", "penelope.parker@hotmail.com", 
+  "oliver.owens@gmail.com", "olivia.ortiz@gmail.com", "noah.nguyen@outlook.com", "nora.nelson@yahoo.com", 
+  "mason.moore@gmail.com", "mia.miller@gmail.com", "liam.lewis@hotmail.com", "lucy.lee@gmail.com", 
+  "kevin.king@yahoo.com", "kylie.kelly@gmail.com", "jack.jones@gmail.com", "julia.jackson@outlook.com", 
+  "ian.irwin@gmail.com", "isabella.ingram@yahoo.com", "henry.harris@gmail.com", "hannah.hall@gmail.com", 
+  "george.green@hotmail.com", "grace.garcia@gmail.com", "felix.foster@yahoo.com", "fiona.ford@gmail.com", 
+  "ethan.evans@outlook.com", "emma.edwards@gmail.com", "daniel.diaz@gmail.com", "diana.davis@yahoo.com", 
+  "charlie.clark@gmail.com", "chloe.carter@hotmail.com", "bob.brooks@gmail.com", "brenda.baker@outlook.com", 
+  "aaron.allen@yahoo.com", "alice.adams@gmail.com"
 ];
 
-// Створення сервера
 const server = http.createServer((req, res) => {
   res.setHeader('Content-Type', 'application/json');
   res.setHeader('Access-Control-Allow-Origin', '*');
@@ -79,7 +74,6 @@ const server = http.createServer((req, res) => {
         break;
     }
   } else {
-    // Якщо метод не GET (наприклад, POST або PUT)
     res.writeHead(405);
     res.end(JSON.stringify({ error: "Метод не дозволено. Використовуйте GET-запити." }));
   }
